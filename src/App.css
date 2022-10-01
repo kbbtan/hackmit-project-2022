@@ -16,6 +16,7 @@ body, html {
 }
 
 .header-container {
+    width: 50%;
     padding: 8%;
 }
 
@@ -29,6 +30,7 @@ body, html {
 }
 
 .form-container {
+    width: 50%;
     margin: 5%;
     padding: 3%;
     height: 65%;
@@ -46,18 +48,28 @@ body, html {
     align-items: center;
 }
 
-.form-container input {
-    width: 100%;
-    border: none;
+.form-container input, .form-container select {
     padding: 2%;
+    font-size: 16px;
 }
 
-.form-container input[type="text"] {
+.form-container input[type="text"], .form-container input[type="date"], .form-container input[type="time"] {
+    width: 100%;
+}
+
+.form-container select, .form-container input[type="submit"] {
+    width: 105%;
+}
+
+.form-container input[type="text"], .form-container input[type="date"], .form-container select {
     background-color: white;
     color: black;
+    border: 2px solid black;
 }
 
 .form-container input[type="submit"] {
+    border: none;
+    border: 2px solid #3A6FA4;
     background-color: #5994CE;
     color: white;
     cursor: pointer;
