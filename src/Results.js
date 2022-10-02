@@ -12,7 +12,10 @@ const Results = ({setFormMode, predicting, results}) => {
     return (
         <form className="results-container" onSubmit={returnToForm}>
             {predicting && <InfinitySpin color="#2E385C"/>}
-            {!predicting && <p>results here</p>}
+            {!predicting && <div>
+                <h1>Your estimated number of entries is:</h1>
+                <h3>{results}</h3>
+            </div>}
 
             <input type="submit" value="<< Run Another Prediction"/>
         </form>

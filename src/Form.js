@@ -4,7 +4,7 @@ import "./App.css";
 const Form = ({callPrediction}) => {
   const [date, setDate] = React.useState("");
   const [time, setTime] = React.useState("");
-  const [line, setLine] = React.useState("");
+  const [line, setLine] = React.useState("Red Line");
 
   const onSubmit = (e) => {
     e.preventDefault();
