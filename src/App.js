@@ -1,73 +1,35 @@
 import React from 'react';
 import "./App.css";
 
+import Form from "./Form";
+import Results from "./Results";
+
 function App() {
   const [formMode, setFormMode] = React.useState(true);
+  const [predicting, setPredicting] = React.useState(false);
+  const [data, setData] = React.useState({});
+  const [results, setResults] = React.useState({});
 
-  const [date, setDate] = React.useState("");
-  const [time, setTime] = React.useState("");
-  const [line, setLine] = React.useState("");
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-
-    const data = {
-      date: date,
-      time: time,
-      line: line
-    };
-
-    console.log(data);
+  const callPrediction = () => {
+    setFormMode(false);
+    setPredicting(true);
+    
   }
 
-  if (formMode) {
     return (
       <div className="main-page">
         <div className="header-container">
           <img src="/predict_logo.png" alt="logo"/>
-          <h1>Blazingly Fast machine learning driven application</h1>
-          <p>Doing stuff like never before</p>
+          <h1>T-raining data like never before</h1>
+          <p>Blazingly fast ML with InterSystems</p>
         </div>
   
         <div className="form-container">
-          <form onSubmit={onSubmit}>
-            <input
-              type="text"
-              placeholder="Ride Date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              onFocus={(e) => (e.target.type = "date")}
-              onBlur={(e) => (e.target.type = "text")}
-            />
-  
-            <input 
-              type="text" 
-              placeholder="Ride Time"
-              value={time}
-              onChange={(e) => setTime(e.target.value)}
-              onFocus={(e) => (e.target.type = "time")}
-              onBlur={(e) => (e.target.type = "text")}
-            />
-            
-            <select 
-              placeholder="MBTA Line"
-              value={line}
-              onChange={(e) => setLine(e.target.value)}
-            >
-              <option>Red Line</option>
-              <option>Blue Line</option>
-              <option>Green Line</option>
-              <option>Orange Line</option>
-              <option>Silver Line</option>
-            </select>
-  
-            <input type="submit" value="Run Prediction!"/>
-          </form>
+          {formMode && <Form setData={setData} callPrediction={callPrediction}/>}
+          {!formMode && <Results setFormMode={setFormMode} predicting={predicting} results={results}/>}
         </div>
       </div>
     );
-    
-  }
 }
 
 export default App;
