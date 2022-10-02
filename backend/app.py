@@ -37,7 +37,7 @@ def index():
     connection = iris.connect(CONNECTION_STRING, ACCOUNTNAME, PASSWORD)
     cursor = connection.cursor()
 
-    insert_query = f"INSERT INTO mbta_full VALUES ({day}, {month}, {year}, {time_period}, 0 \
+    insert_query = f"INSERT INTO mbta_full VALUES ({day}, {month}, {year}, {time_period}, 0, \
     {route_indicators[0]}, {route_indicators[1]}, {route_indicators[2]}, {route_indicators[3]}, {route_indicators[4]})"
     where_search = f"WHERE day = {day} AND month = {month} AND year = {year} AND time_period = {time_period} \
         AND route_Blue_Line = {route_indicators[0]} AND route_Green_Line = {route_indicators[1]} AND \
