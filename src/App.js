@@ -7,13 +7,22 @@ import Results from "./Results";
 function App() {
   const [formMode, setFormMode] = React.useState(true);
   const [predicting, setPredicting] = React.useState(false);
-  const [data, setData] = React.useState({});
   const [results, setResults] = React.useState({});
 
-  const callPrediction = () => {
+  const callPrediction = async (formData) => {
     setFormMode(false);
     setPredicting(true);
-    
+
+    const response = await fetch("http://localhost:5000", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(formData)
+    });
+
+    const results = await response.json();
+    console.log(results);
+
+    setPredicting(false);
   }
 
     return (
@@ -21,11 +30,14 @@ function App() {
         <div className="header-container">
           <img src="/predict_logo.png" alt="logo"/>
           <h1>T-raining data like never before</h1>
-          <p>Blazingly fast ML with InterSystems</p>
+          <p>
+            <i>Blazingly fast </i>
+            ML with InterSystems
+          </p>
         </div>
   
         <div className="form-container">
-          {formMode && <Form setData={setData} callPrediction={callPrediction}/>}
+          {formMode && <Form callPrediction={callPrediction}/>}
           {!formMode && <Results setFormMode={setFormMode} predicting={predicting} results={results}/>}
         </div>
       </div>

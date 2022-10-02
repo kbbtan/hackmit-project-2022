@@ -1,19 +1,18 @@
 import React from "react";
 import "./App.css";
 
-const Form = ({setData, callPrediction}) => {
+const Form = ({callPrediction}) => {
   const [date, setDate] = React.useState("");
   const [time, setTime] = React.useState("");
   const [line, setLine] = React.useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setData({
+    callPrediction({
         date: date,
         time: time,
         line: line
     });
-    callPrediction();
   }
 
   return (

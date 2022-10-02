@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=My+Soul&display=swap');
 
 body, html {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     margin: 0;
@@ -21,12 +22,24 @@ body, html {
 }
 
 .header-container img {
-    width: 30%;
-    height: 30%;
+    width: 40%;
+    height: 40%;
 }
 
 .header-container h1, .header-container p {
     color: white;
+}
+
+.header-container h1 {
+    font-size: 2.5em;
+}
+
+.header-container p {
+    font-size: 1.5em;
+}
+
+.header-container i {
+    font-size: 1.6em;
 }
 
 .form-container {
@@ -50,7 +63,7 @@ body, html {
 
 .form-container input, .form-container select {
     padding: 2%;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 .form-container input[type="text"], .form-container input[type="date"], .form-container input[type="time"] {
